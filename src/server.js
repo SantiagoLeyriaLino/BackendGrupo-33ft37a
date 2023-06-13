@@ -2,7 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-// const routes = require("./routes/index");
+const routes = require("./routes/indexRoutes");
 // const swaggerUi = require("swagger-ui-express");
 // const swaggerDocs = require("../swagger/swagger.json"); // ruta al archivo de documentación Swagger
 const server = express();
@@ -33,6 +33,6 @@ const Multer = multer({
 
 // server.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // server.use("/", Multer.array("images"), uploadImage, routes);
-// server.use("/", routes);
+server.use("/", routes);
 
 module.exports = server;

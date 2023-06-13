@@ -8,7 +8,6 @@ const usersScheme = new Schema({
     },
     image:{
         type: [String],
-        required: true
     },
     email:{
         type: String,
@@ -48,8 +47,10 @@ const usersScheme = new Schema({
     isAdmin:{
         type:Boolean,
         default: false
-    }
-    
-})
+    }   
+},
+{
+    versionKey: false,
+  })
 
 module.exports = mongoose.model('Users', usersScheme);
