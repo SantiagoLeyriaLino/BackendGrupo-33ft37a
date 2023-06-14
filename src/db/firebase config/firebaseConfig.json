@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fashionfinds-ebf15",
+  "private_key_id": "3a9338fb148331334ac27d6b3696b8b710b4a36d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC3ZR6VPqioeUwY\nMVlhhrD691FYz//DE7BCv5jt9RoDUYP86EuMU562pQa+G0gDJy8UqeQBM75KCv9+\n9UbGWw17l0xEIYxKShagJr/ptK3dEC+bIRZidq9ujhZaOUPUayktUWYjRsqGdeiC\n6NwK3GfH1FmZbf5+3Bxq5VlVmdWrAyXCJiZF3Ge2Reso0hkY3wfb7nKsClJAZmDF\ntR8gIO1vJ0kovoZbAQZ8y24crA4t2NW61b4DoCsdAsmloqyJwdqGA+NeON6SQyan\nBsxxIK4by+3AwYNR74WTq13k4YWGfT73JuGO0/FO5R6QJ9dxwGSbVoE6l/NY8ZaE\nT6+aHYL/AgMBAAECggEARetdf5UGBEVKh6a45v/NFcGY1/1lC2DEQI5/paleo4k+\ngvulYfi3d/bu3SfViq4zuvMSpIqvr9cFlce5lgI837PNNeR8cg5RFfnwDQ//gVqc\na85vlFafh8zQJNHUVHYOmuJ/yE9DA4SMgux4iAOD5aHGD0LqVj9g7jhGmOYvmiTR\nOHRNiG4ICUEvmaJ3scO0Jpt0R5fgSJjjipKXvOhkRRUirCTPQcdiZtVMipcuj21j\n+36stYpW3sG3JM3QYR1jVak/r2UIulMtGSkYTqmszxV9HbeaWjZEdLnZBB7MlhJ2\nY/dvLOzpPzGLdZpfoapmFy7Swlt44O+HhbFW9I5vcQKBgQDsOdfLmMq0J20vmEEk\nxFwXMwo8FvWMe2OSvla+Cz8PNIMEAmkpo3FnSb/HODanL867l/IgINeHiv+dG4Jf\n2uUmVV8fXzZVvml01LbX4byjn/50LZtciTK490ePYV2NYJqQWTwyniBQO4p+MFmq\nV3CWW1XmQqXfkW3RShi8fBIK3QKBgQDGvyVpkNtabWmZQOpIm/Nwa7+6s12utjl+\nwLZyypQxfccg7Z5MJ2WczLbS2Qb2QzLdnarVMK581IrO3iGjzaSIOZznURyjrY2D\nYmgJyrF70G3rzWte+UFFEfJEHVjOmlPpyraAF9Gq/g4lRSsNJ/qvw1KnX9CFIk7r\nEAjL1hXBiwKBgQDVZEM+Fh42s878Sau/TOprwp2iPpM+flAqxWqSbpJeZ+9addsN\n1CmjRonJq0wjpxo3eEEvKLvKI5RZFfqmIJUUFdbB/j6VIlcdRPKO/cpsfSFdTb2k\n0ANT931bVncuOXAmqZWpnBJQqBipeX/mUurPyF5GjTpORY9QmoDR87pQuQKBgCUY\nOBtj9g0CrtrzysaSlPU+pyJpp+qcCE8oGOWD+fTizO/QaeM81zJU4yqnZy0/jZbf\nfqsb0vVplh7WRuET2Mm0NxzVfsrt8aO8Ej8Bne7GED4asReg3hXOK7Ga6KBnHZJd\nS4LM701C7dD2//oMpDV590tWDs1KggBNlda1tonRAoGACnFP6TRhmL/VMQKYf5z+\n98VWDGBiOW1tArNW06XBOVFFKEIKX94VNJ9+XBWqc03hSfkNf6O4BF/nFYt/4Y6u\nFCju9m8Ot5sROyAZZi1iLIZ8k5DAPS2s9D6j2m1b6IZ7QJaiL/KjDGsEZgeXRj1V\n1WQ7aBkEuWZRpAd4yPOrl88=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-soj0v@fashionfinds-ebf15.iam.gserviceaccount.com",
+  "client_id": "102865922980909738917",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-soj0v%40fashionfinds-ebf15.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
