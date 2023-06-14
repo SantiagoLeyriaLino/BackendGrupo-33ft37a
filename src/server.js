@@ -7,7 +7,7 @@ const routes = require("./routes/indexRoutes");
 // const swaggerDocs = require("../swagger/swagger.json"); // ruta al archivo de documentación Swagger
 const server = express();
 const multer = require("multer");
-// const uploadImage = require("./services/firebase");
+const uploadImage = require("./services/firebase");
 
 server.use(cors());
 server.use(bodyParser.json({ limit: "50mb" }));
@@ -32,7 +32,7 @@ const Multer = multer({
 });
 
 // server.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-// server.use("/", Multer.array("images"), uploadImage, routes);
-server.use("/", routes);
+server.use("/", Multer.array("images"), uploadImage, routes);
+// server.use("/", routes);
 
 module.exports = server;

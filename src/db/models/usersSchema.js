@@ -8,10 +8,12 @@ const usersScheme = new Schema({
     },
     image:{
         type: [String],
+        default:["https://st2.depositphotos.com/1523669/6194/i/950/depositphotos_61945927-stock-photo-icon-of-businessman.jpg"]
     },
     email:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password:{
         type: String,
