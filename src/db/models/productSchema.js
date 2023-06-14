@@ -10,6 +10,7 @@ const productSchema = new Schema({
 	category: {
 		type: String,
 		required: true,
+		// enum: []
 	},
 
 	gender: {
@@ -19,12 +20,12 @@ const productSchema = new Schema({
 	},
 
 	size: {
-		type: String,
+		type: [String],
 		required: true,
 	},
 
 	color: {
-		type: String,
+		type: [String],
 		required: true,
 	},
 
@@ -54,8 +55,13 @@ const productSchema = new Schema({
 		type: String,
 		required: true,
 	},
+
+	price: {
+		type: Number,
+		required: true,
+	},
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Products', productSchema);
 
 module.exports = Product;
