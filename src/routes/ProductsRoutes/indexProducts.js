@@ -9,9 +9,9 @@ const products = Router();
 
 products.post('/', postHandlerProducts);
 
+products.get('/search', getHandlerSearch);
 products.get('/', getHandlerProducts);
 products.get('/:id', getByIdHandler);
-products.get('/search', getHandlerSearch);
 
 products.put('/:id', putHandlerProducts);
 
