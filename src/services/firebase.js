@@ -1,11 +1,12 @@
 var admin = require("firebase-admin");
-
+require('dotenv').config();
+const { BUCKET } = process.env;
 var serviceAccount = require("../db/firebase config/firebaseConfig.json");
 
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: "fashionfinds-ebf15.appspot.com",
+  storageBucket: BUCKET,
 });
 
 const bucket = admin.storage().bucket();
@@ -33,7 +34,7 @@ const uploadImage = (req, res, next) => {
       stream.on("finish", async () => {
         await file.makePublic();
         console.log(`Archivo ${nombreArchivo} subido exitosamente`);
-        image.firebaseUrl = `https://storage.googleapis.com/fashionfinds-ebf15.appspot.com/${nombreArchivo}`;
+        image.firebaseUrl = `https://storage.googleapis.com/${BUCKET}/${nombreArchivo}`;
         resolve();
       });
 
