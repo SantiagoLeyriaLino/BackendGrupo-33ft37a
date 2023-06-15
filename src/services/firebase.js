@@ -7,7 +7,7 @@ const { BUCKET } = process.env;
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: BUCKET,
+  storageBucket: "fashionfinds-ebf15.appspot.com",
 });
 
 const bucket = admin.storage().bucket();
@@ -35,7 +35,7 @@ const uploadImage = (req, res, next) => {
       stream.on("finish", async () => {
         await file.makePublic();
         console.log(`Archivo ${nombreArchivo} subido exitosamente`);
-        image.firebaseUrl = `https://storage.googleapis.com/${BUCKET}/${nombreArchivo}`;
+        image.firebaseUrl = `https://storage.googleapis.com/fashionfinds-ebf15.appspot.com/${nombreArchivo}`;
         resolve();
       });
 
