@@ -1,6 +1,6 @@
 const Products = require('../../../db/models/productSchema');
 
-const postControllerProduct = async (data) => {
+const postControllerProduct = async (data, firebaseUrls) => {
 	const product = {
 		name: data.name,
 		category: data.category,
@@ -8,7 +8,7 @@ const postControllerProduct = async (data) => {
 		size: data.size,
 		color: data.color,
 		season: data.season,
-		images: data.images,
+		images: firebaseUrls,
 		stock: data.stock,
 		brand: data.brand,
 		price: data.price,
