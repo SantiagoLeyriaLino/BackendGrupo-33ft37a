@@ -13,7 +13,15 @@ const usersScheme = new Schema({
     email:{
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        validate: {
+            validator: function(value) {
+              return this.constructor.findOne({ email: { $regex: new RegExp(`^${value}$`, 'i') } })
+                .then(existingEmail => !existingEmail);
+            },
+            message: 'El email ya existe.'
+          }
+        
     },
     password:{
         type: String,
@@ -24,15 +32,17 @@ const usersScheme = new Schema({
     },
     city:{
         type: String,
-        required: true
     },
     country:{
         type: String,
-        required: true
     },
     phoneNumber:{
-        type: Number,
+        type: String,
         required: true
+    },
+    date:{
+        type: String,
+        required:true
     },
     // purchaseHistory:[{
     //     type: mongoose.Types.ObjectId,
@@ -54,5 +64,7 @@ const usersScheme = new Schema({
 {
     versionKey: false,
   })
+
+  usersScheme.index({ email: 1 }, { unique: true });
 
 module.exports = mongoose.model('Users', usersScheme);

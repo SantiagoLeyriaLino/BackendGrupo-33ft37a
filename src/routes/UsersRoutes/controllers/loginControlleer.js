@@ -1,8 +1,8 @@
 const Users = require('../../../db/models/usersSchema')
 const bcrypt = require('bcryptjs')
 
-const loginController = async(password,userName) =>{
-    let user = await Users.findOne({ name: userName });
+const loginController = async(password,email) =>{
+    let user = await Users.findOne({ email: email });
     if(user){
         let compare = bcrypt.compareSync(password, user.password)
         if(compare){

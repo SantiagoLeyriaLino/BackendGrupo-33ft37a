@@ -1,7 +1,7 @@
 const modelateData = (query, data) => {
 	var info;
 	var currentPage = query;
-	var documentsPerPage = 5;
+	var documentsPerPage = 9;
 	if (data.length == 0) {
 		throw new Error('no info');
 	}

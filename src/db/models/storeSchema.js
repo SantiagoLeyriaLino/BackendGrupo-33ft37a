@@ -26,7 +26,8 @@ const storeSchema = new Schema({
         type: String
     },
     phoneNumber: {
-        type: Number
+        type: String,
+        required: true
     },
     products: {
         type: [mongoose.Types.ObjectId],
