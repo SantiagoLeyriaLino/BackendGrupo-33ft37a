@@ -20,7 +20,19 @@ const productSchema = new Schema({
 	},
 
 	size: {
-		type: [String],
+		type: [
+			{
+				size: {
+					type: String,
+					required: true,
+				},
+				stock: {
+					type: String,
+					required: true,
+					min: 0,
+				},
+			},
+		],
 		required: true,
 	},
 
@@ -32,7 +44,7 @@ const productSchema = new Schema({
 	season: {
 		type: String,
 		required: true,
-		enum: ['spring', 'summer', 'fall', 'winter'],
+		enum: ['spring', 'summer', 'atumn', 'winter'],
 	},
 
 	images: {

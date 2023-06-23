@@ -4,7 +4,6 @@ const putControllerProducts = async (id, updatedData) => {
 	const productUpdate = await Products.findByIdAndUpdate(id, updatedData, {
 		new: true,
 	});
-	console.log(productUpdate);
 	return productUpdate;
 };
 

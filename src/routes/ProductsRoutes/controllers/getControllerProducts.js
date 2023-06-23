@@ -6,7 +6,7 @@ const getControllerProducts = async (page) => {
 		.select({
 			name: 1,
 			images: { $slice: -1 },
-			size: { $slice: -1 },
+			'size.size': 1,
 			brand: 1,
 			price: 1,
 		})
@@ -37,3 +37,4 @@ const getControllerProducts = async (page) => {
 };
 
 module.exports = getControllerProducts;
+
