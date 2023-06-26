@@ -27,7 +27,7 @@ const productSchema = new Schema({
 					required: true,
 				},
 				stock: {
-					type: String,
+					type: Number,
 					required: true,
 					min: 0,
 				},
@@ -52,11 +52,11 @@ const productSchema = new Schema({
 		required: true,
 	},
 
-	stock: {
-		type: Number,
-		required: true,
-		min: 0,
-	},
+	// stock: {
+	// 	type: Number,
+	// 	required: true,
+	// 	min: 0,
+	// },
 
 	isActive: {
 		type: Boolean,
@@ -79,6 +79,7 @@ const productSchema = new Schema({
 		required: true,
 	},
 });
+
 
 const Product = mongoose.model('Products', productSchema);
 

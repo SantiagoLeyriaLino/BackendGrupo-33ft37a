@@ -1,7 +1,7 @@
 const Products = require('../../../db/models/productSchema');
 const modelateDataPaginado = require('../../../utils/modelateDataPaginate');
 
-const getControllerSearch = async (page, query) => {
+const getControllerSearch = async (query) => {
 	const filter = {};
 	for (const key in query) {
 		if (query.hasOwnProperty(key)) {
@@ -24,7 +24,14 @@ const getControllerSearch = async (page, query) => {
 	const queryResult = await Products.find(filter);
 
 	const products = [];
-	for (const product of queryResult) {
+	for (let product of queryResult) {
+		let stockSum = 0
+		for (let i = 0; i < product.size.length; i++) { 
+		let obj = product.size[i];
+		obj.stock = parseInt(obj.stock); 
+		stockSum += obj.stock;
+	  }
+	  product = {...product.toObject(),stock:stockSum}
 		const sameCodeProducts = await Products.find({
 			$and: [
 				{ _id: { $ne: product._id } },
@@ -35,7 +42,7 @@ const getControllerSearch = async (page, query) => {
 		})
 			.select({
 				name: 1,
-				images: { $slice: 0 },
+				images: { $slice: 1 },
 				size: { $slice: -1 },
 				brand: 1,
 				price: 1,
@@ -43,14 +50,13 @@ const getControllerSearch = async (page, query) => {
 			})
 			.exec();
 		const productWithSameCode = {
-			...product.toObject(),
+			...product,
 			sameCode: sameCodeProducts,
 		};
 		delete productWithSameCode._doc;
 		products.push(productWithSameCode);
 	}
-	const response = modelateDataPaginado(page, products);
-	return response;
+	return products;
 };
 
 module.exports = getControllerSearch;
