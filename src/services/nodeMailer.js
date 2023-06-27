@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const templatePostUser = require('../templates/postUser.js');
+const templatePostBuy = require('../templates/postBuy.js')
 const nodemailerSendgrid = require('nodemailer-sendgrid');
 require('dotenv').config();
 const path = require('path');
@@ -37,4 +38,15 @@ const sendEmail = async (toEmail) => {
     return;
 };
 
-module.exports = sendEmail;
+const sendBuy = async (toEmail) => {
+    const transporterConection = transporter();
+    const info = await transporterConection.sendMail({
+        from: '"FashionFinds" <desarrolloBackendGrupo33@gmail.com>',
+        to: `${toEmail}`,
+        subject: "FashionFinds",
+        html: templatePostBuy(),
+    });
+    return;
+};
+
+module.exports = {sendEmail, sendBuy};
