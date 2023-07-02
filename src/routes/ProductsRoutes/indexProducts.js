@@ -16,4 +16,3 @@ products.get('/:id', getByIdHandler);
 products.put('/:id', putHandlerProducts);
 
 module.exports = products;
-

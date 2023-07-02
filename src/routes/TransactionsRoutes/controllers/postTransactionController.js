@@ -8,7 +8,8 @@ const postTransactionController = async (data) => {
       amount: data.amount,
       products: data.products,
       date: data.date,
-      status: data.status
+      status: data.status,
+      cpDesc: data.cpDesc,
     };
 
     const user = await Users.findById(data.idUser);
@@ -31,7 +32,8 @@ const postTransactionController = async (data) => {
     const updateResult = await Users.findOneAndUpdate(
       { _id: data.idUser },
       {
-        $push: { purchaseHistory: info._id }
+        $push: { purchaseHistory: info._id },
+        $inc: { cpDesc: -data.cpDesc }
       },
       { new: true }
     );

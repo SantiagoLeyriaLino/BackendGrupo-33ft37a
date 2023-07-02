@@ -1,6 +1,8 @@
 const nodemailer = require('nodemailer');
 const templatePostUser = require('../templates/postUser.js');
 const templatePostBuy = require('../templates/postBuy.js')
+const templatePostComment = require('../templates/postComment.js')
+const templateResponseComment = require('../templates/responseComment.js')
 const nodemailerSendgrid = require('nodemailer-sendgrid');
 require('dotenv').config();
 const path = require('path');
@@ -38,15 +40,44 @@ const sendEmail = async (toEmail) => {
     return;
 };
 
-const sendBuy = async (toEmail) => {
+const sendBuy = async (toEmail, pdf) => {
     const transporterConection = transporter();
     const info = await transporterConection.sendMail({
         from: '"FashionFinds" <desarrolloBackendGrupo33@gmail.com>',
         to: `${toEmail}`,
         subject: "FashionFinds",
-        html: templatePostBuy(),
+        html:templatePostBuy(),
+        attachments: [
+            {
+                filename: 'boleta.pdf',
+                content: pdf,
+            },
+        ],
+        
     });
     return;
 };
 
-module.exports = {sendEmail, sendBuy};
+const sendComment = async(data) =>{
+    const transporterConection = transporter();
+    const info = await transporterConection.sendMail({
+        from: '"FashionFinds" <desarrolloBackendGrupo33@gmail.com>',
+        to: `desarrolloBackendGrupo33@gmail.com`,
+        subject: "FashionFinds",
+        html: templatePostComment(data),
+    });
+    return;
+}
+
+const responseComment = async(data) =>{
+    const transporterConection = transporter();
+    const info = await transporterConection.sendMail({
+        from: '"FashionFinds" <desarrolloBackendGrupo33@gmail.com>',
+        to: `${data.email}`,
+        subject: "FashionFinds",
+        html: templateResponseComment(data),
+    });
+    return;
+}
+
+module.exports = {sendEmail, sendBuy, responseComment, sendComment};
