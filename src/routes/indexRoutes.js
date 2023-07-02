@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const ProductsPrueba = require('../db/models/productsPrubeScheme')
+
 const usersRoutes = require('./UsersRoutes/indexUsers');
 const productsRoutes = require('./ProductsRoutes/indexProducts');
 const storeRoutes = require('./StoreRoutes/indexStore');
