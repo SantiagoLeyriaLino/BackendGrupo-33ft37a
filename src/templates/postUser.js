@@ -51,7 +51,7 @@ module.exports = () => {
         <p>Hello!</p>
         <p>Thank you for registering with FashionFinds. We hope you enjoy our platform.</p>
         <p class="confirmation-text">Before proceeding, please confirm your account by clicking the button below:</p>
-        <a href="http://localHost:3000/autenticate" class="button">Confirm Account</a>
+        <a href="https://frontend-grupo33-ft37a.vercel.app/autenticate" class="button">Confirm Account</a>
         <p>Start discovering the latest fashion trends and finding the best deals!</p>
         <p>If you have any questions or need assistance, feel free to contact our support team.</p>
         <p>Have a great day!</p>

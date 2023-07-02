@@ -48,8 +48,8 @@ module.exports = (data) => {
       <body>
         <div class="container">
           <h1>comment belonging to:${data.name}</h1>
-          <p>E-mail:${data.email}</p>
-          <p>Message:${data.message}</p>
+          <p>E-mail: ${data.email}</p>
+          <p>${data.message}</p>
         </div>
       </body>
       </html>
