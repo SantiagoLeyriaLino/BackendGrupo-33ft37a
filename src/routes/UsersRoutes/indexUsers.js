@@ -14,5 +14,5 @@ users.get('/auth/:email', getByEmailHandler);
 users.put('/:id', putHandlerUser);
 users.get('/', getHandlerUsers);
 users.post('/', postHandlerUsers);
-// comentario
+
 module.exports = users;
