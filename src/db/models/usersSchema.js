@@ -63,6 +63,14 @@ const usersScheme = new Schema(
 			type: Boolean,
 			default: false,
 		},
+		validated:{
+			type:Boolean,
+			default:false
+		},
+		cpDesc:{
+			type: Number,
+			default: 1
+		}
 	},
 	{
 		versionKey: false,
@@ -70,5 +78,8 @@ const usersScheme = new Schema(
 );
 
 usersScheme.index({ email: 1 }, { unique: true });
+
+
+usersScheme.plugin(autopopulate);
 
 module.exports = mongoose.model('Users', usersScheme);

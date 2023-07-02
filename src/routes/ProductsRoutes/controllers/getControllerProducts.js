@@ -43,5 +43,3 @@ const getControllerProducts = async () => {
 };
 
 module.exports = getControllerProducts;
-
-

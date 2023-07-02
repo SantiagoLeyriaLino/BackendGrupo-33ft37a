@@ -37,7 +37,7 @@ const transactionsSchema = new Schema({
     },
     status:{
         type: String,
-        required: true
+        default: "Pending"
     }
 },{
     versionKey: false

@@ -12,6 +12,7 @@ const postHandlerUsers = async(req, res) =>{
         let info = await postControllerUsers(data, firebaseUrls)
         res.status(200).json(info)
     }catch(err){
+        console.log(err.message)
         res.status(400).json({error:err.message})
     }
 }

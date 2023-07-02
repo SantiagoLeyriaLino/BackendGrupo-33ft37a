@@ -17,6 +17,8 @@ const getControllerSearch = async (query) => {
 				};
 			} else if (['name'].includes(key)) {
 				filter[key] = { $regex: new RegExp(query[key], 'i') };
+			} else if (key === 'price') {
+				filter['price'] = { $lt: parseInt(query[key]) };
 			}
 		}
 	}
@@ -56,7 +58,12 @@ const getControllerSearch = async (query) => {
 		delete productWithSameCode._doc;
 		products.push(productWithSameCode);
 	}
-	return products;
+	if(products.length>0){
+
+		return products;
+	}else{
+		throw Error("no products")
+	}
 };
 
 module.exports = getControllerSearch;

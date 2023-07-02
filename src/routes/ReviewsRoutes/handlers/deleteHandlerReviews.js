@@ -5,7 +5,8 @@ const deleteHandlerReviews = async (req, res)=> {
         const { id } = req.params
         if(id) {
             const response = deleteControllerReviews(id)
-            res.status(200).json({ message: 'The review has been deleted succesfully!' })
+            res.status(200).json({ message: 'The review has been deleted succesfully!',
+                data: response })
         } else {
             throw new Error('Empty ID')
         }

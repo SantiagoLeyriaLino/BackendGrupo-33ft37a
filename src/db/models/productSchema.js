@@ -16,7 +16,7 @@ const productSchema = new Schema({
 	gender: {
 		type: String,
 		required: true,
-		enum: ['male', 'female', 'child'],
+		enum: ['male', 'female', 'boy', 'girl'],
 	},
 
 	size: {
