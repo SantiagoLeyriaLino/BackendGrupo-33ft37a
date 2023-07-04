@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const autopopulate = require('mongoose-autopopulate');
+const AutoIncrementFactory = require('mongoose-sequence');
+
+const autoIncrementFactory = AutoIncrementFactory(mongoose);
 
 const transactionsSchema = new Schema({
     idUser: {
@@ -38,6 +41,10 @@ const transactionsSchema = new Schema({
     status:{
         type: String,
         default: "Pending"
+    },
+    purchaseNumber:{
+        type: Number,
+        unique:true
     }
 },{
     versionKey: false
@@ -45,6 +52,13 @@ const transactionsSchema = new Schema({
 
 
 transactionsSchema.plugin(autopopulate);
+
+transactionsSchema.plugin(autoIncrementFactory, {
+    id: 'numero_autoincrement',
+    inc_field: 'purchaseNumber',
+    start_seq: 0,
+    format: '%09d' // Formato de 9 dígitos con ceros a la izquierda
+  });
 
 const Transactions = mongoose.model('Transactions', transactionsSchema);
 
