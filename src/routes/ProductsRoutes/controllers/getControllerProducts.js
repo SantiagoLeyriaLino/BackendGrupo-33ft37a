@@ -2,35 +2,56 @@ const Products = require('../../../db/models/productSchema');
 const modelateDataPaginado = require('../../../utils/modelateDataPaginate');
 
 const getControllerProducts = async () => {
-	const allProducts = await Products.find({}).lean().exec();
-
-	const products = [];
-	for (let product of allProducts) {
-		let stockSum = 0;
-		for (let i = 0; i < product.size.length; i++) {
-			const obj = product.size[i];
-			obj.stock = parseInt(obj.stock);
-			stockSum += obj.stock;
+	const products = await Products.aggregate([
+	  {
+		$project: {
+		  name: 1,
+		  images: { $slice: ["$images", -1] },
+		  brand: 1,
+		  price: 1,
+		  articleCode: 1,
+		  size: 1,
+		  stock: {
+			$sum: {
+			  $map: {
+				input: "$size",
+				as: "size",
+				in: { $toInt: "$$size.stock" }
+			  }
+			}
+		  }
 		}
-		product = { ...product, stock: stockSum };
-		const sameCodeProducts = await Products.find({
-			articleCode: product.articleCode,
-		})
-			.select({
+	  },
+	  {
+		$lookup: {
+		  from: "products",
+		  let: { articleCode: "$articleCode" },
+		  pipeline: [
+			{
+			  $match: {
+				$expr: { $eq: ["$articleCode", "$$articleCode"] }
+			  }
+			},
+			{
+			  $sort: { size: -1 }
+			},
+			{
+			  $project: {
 				name: 1,
-				images: { $slice: -1 },
-				size: { $slice: -1 },
+				images: { $slice: ["$images", -1] },
+				size: { $slice: ["$size", -1] },
 				brand: 1,
 				price: 1,
-				articleCode: 1,
-			})
-			.lean()
-			.exec();
-		const productWithSameCode = { ...product, sameCode: sameCodeProducts };
-		products.push(productWithSameCode);
-	}
-
+				articleCode: 1
+			  }
+			}
+		  ],
+		  as: "sameCode"
+		}
+	  }
+	]).exec();
+  
 	return products;
-};
-
-module.exports = getControllerProducts;
+  };
+  
+  module.exports = getControllerProducts;
