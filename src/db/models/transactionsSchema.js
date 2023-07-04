@@ -42,10 +42,7 @@ const transactionsSchema = new Schema({
         type: String,
         default: "Pending"
     },
-    purchaseNumber:{
-        type: Number,
-        unique:true
-    }
+    
 },{
     versionKey: false
 });
@@ -53,13 +50,7 @@ const transactionsSchema = new Schema({
 
 transactionsSchema.plugin(autopopulate);
 
-transactionsSchema.plugin(autoIncrementFactory, {
-    id: 'numero_autoincrement',
-    inc_field: 'purchaseNumber',
-    start_seq: 0,
-    format: '%09d' // Formato de 9 dígitos con ceros a la izquierda
-  });
-
+//comentario para deploy
 const Transactions = mongoose.model('Transactions', transactionsSchema);
 
 module.exports = Transactions;
