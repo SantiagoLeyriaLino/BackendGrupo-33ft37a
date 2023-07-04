@@ -50,7 +50,7 @@ const transactionsSchema = new Schema({
 
 transactionsSchema.plugin(autopopulate);
 
-
+//comentario para deploy
 const Transactions = mongoose.model('Transactions', transactionsSchema);
 
 module.exports = Transactions;
