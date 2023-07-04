@@ -118,7 +118,7 @@ const postControllerPurchase =  (data) => {
             .text(invoice.date, 150, customerInformationTop + 15)
             .text("Amount total:", 50, customerInformationTop + 30)
             .text(
-                `- ${formatCurrency(invoice.subtotal - invoice.desc)}`,
+                `${formatCurrency(invoice.subtotal - invoice.desc)}`,
                 150,
                 customerInformationTop + 30
             )
@@ -193,7 +193,7 @@ const postControllerPurchase =  (data) => {
             "",
             "Cp.Desc",
             "",
-            formatCurrency(invoice.desc)
+            `- ${formatCurrency(invoice.desc)}`
         );
 
         const duePosition = paidToDatePosition + 25;
