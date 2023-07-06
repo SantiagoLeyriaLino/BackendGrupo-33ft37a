@@ -11,6 +11,7 @@ const getControllerProducts = async () => {
 		  price: 1,
 		  articleCode: 1,
 		  size: 1,
+		  isActive:1,
 		  stock: {
 			$sum: {
 			  $map: {

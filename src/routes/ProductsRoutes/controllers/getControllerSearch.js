@@ -49,6 +49,7 @@ const getControllerSearch = async (query) => {
 				brand: 1,
 				price: 1,
 				articleCode: 1,
+				isActive: 1
 			})
 			.exec();
 		const productWithSameCode = {
