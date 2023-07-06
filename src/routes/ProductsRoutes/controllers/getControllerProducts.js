@@ -6,9 +6,13 @@ const getControllerProducts = async () => {
 	  {
 		$project: {
 		  name: 1,
-		  images: { $slice: ["$images", -1] },
+		  images: 1,
 		  brand: 1,
 		  price: 1,
+		  color:1,
+		  category:1,
+		  gender:1,
+		  season:1,
 		  articleCode: 1,
 		  size: 1,
 		  isActive:1,
