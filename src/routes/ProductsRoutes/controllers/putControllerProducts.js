@@ -19,7 +19,7 @@ const putControllerProducts = async (id, updatedData, firebaseUrls) => {
 		...(arr.length > 0 && { size: arr }),
 		...(updatedData.color && { color: updatedData.color }),
 		...(updatedData.season && { season: updatedData.season }),
-		...(updatedData.images && { images: updatedData.images }),
+		...(updatedData.images && { $push: { images: firebaseUrls } }),
 		...(updatedData.brand && { brand: updatedData.brand }),
 		...(updatedData.price && { price: updatedData.price }),
 		...(updatedData.isActive !== undefined && {
@@ -29,12 +29,13 @@ const putControllerProducts = async (id, updatedData, firebaseUrls) => {
 	};
 
 	if (firebaseUrls) {
-		await Products.findOneAndUpdate({ _id: id }, { images: firebaseUrls });
+		await Products.findByIdAndUpdate(id, { $push: { images: firebaseUrls } });
 	}
 
 	const productUpdate = await Products.findByIdAndUpdate(id, updatedFields, {
 		new: true,
 	});
+
 	console.log(productUpdate);
 	return productUpdate;
 };

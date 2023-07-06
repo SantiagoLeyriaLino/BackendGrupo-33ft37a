@@ -1,4 +1,5 @@
 const Reviews = require('../../../db/models/reviewSchema')
+const Products = require('../../../db/models/productSchema')
 
 const postControllerReviews = async (data)=> {
     const { comment, UserID } = data
@@ -16,6 +17,13 @@ const postControllerReviews = async (data)=> {
                 StoreID: StoreID,
                 ProductID: ProductID
             })
+            const reviews = await Reviews.find({ StoreID: StoreID, ProductID: ProductID });
+
+            const totalRatings = reviews.reduce((sum, review) => sum + review.ratings, 0);
+            const averageRating = totalRatings / reviews.length;
+            
+            await Products.findOneAndUpdate({_id:ProductID},{rating:averageRating})
+
             return response
         } else {
             throw new Error('Wrong data')

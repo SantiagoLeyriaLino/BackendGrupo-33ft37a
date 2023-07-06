@@ -11,3 +11,4 @@ const getHandlerSearch = async (req, res) => {
 };
 
 module.exports = getHandlerSearch;
+

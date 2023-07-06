@@ -3,9 +3,11 @@ const templatePostUser = require('../templates/postUser.js');
 const templatePostBuy = require('../templates/postBuy.js')
 const templatePostComment = require('../templates/postComment.js')
 const templateResponseComment = require('../templates/responseComment.js')
+const templateNewsletter = require ('../templates/postNewsletter.js')
 const nodemailerSendgrid = require('nodemailer-sendgrid');
 require('dotenv').config();
 const path = require('path');
+const postNewsletter = require('../templates/postNewsletter.js');
 const { KEY_SENDGRID_EMAIL } = process.env;
 
 const transporter = () => {
@@ -79,5 +81,15 @@ const responseComment = async(data) =>{
     });
     return;
 }
+const sendNewsletter = async(email) =>{
+    const transporterConection = transporter();
+    const info = await transporterConection.sendMail({
+        from: '"FashionFinds" <desarrolloBackendGrupo33@gmail.com>',
+        to: `${email}`,
+        subject: "FashionFinds",
+        html: templateNewsletter(),
+    });
+    return;
+}
 
-module.exports = {sendEmail, sendBuy, responseComment, sendComment};
+module.exports = {sendEmail, sendBuy, responseComment, sendComment, sendNewsletter};
