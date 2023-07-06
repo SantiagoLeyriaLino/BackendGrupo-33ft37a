@@ -11,7 +11,7 @@ const usersScheme = new Schema(
 		image: {
 			type: [String],
 			default: [
-				'https://st2.depositphotos.com/1523669/6194/i/950/depositphotos_61945927-stock-photo-icon-of-businessman.jpg',
+				'https://i.pinimg.com/564x/57/00/c0/5700c04197ee9a4372a35ef16eb78f4e.jpg',
 			],
 		},
 		email: {
