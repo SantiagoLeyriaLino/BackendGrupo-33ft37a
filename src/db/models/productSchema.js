@@ -44,7 +44,7 @@ const productSchema = new Schema({
 	season: {
 		type: String,
 		required: true,
-		enum: ['spring', 'summer', 'atumn', 'winter'],
+		enum: ['spring', 'summer', 'autumn', 'winter'],
 	},
 
 	images: {
